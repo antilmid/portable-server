@@ -1,8 +1,8 @@
 {
   "name": "portable-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "一个便携的测试服务器",
+  "main": "./app/index.js",
   "bin": {
     "pserver": "./app/index.js"
   },
