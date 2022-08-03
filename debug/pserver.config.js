@@ -1,5 +1,7 @@
 module.exports = {
   staticRoot: './static',
+  xx:1,
+  dontInfo: false,
   proxy: [
     {
       target: 'http://www.baidu.com',

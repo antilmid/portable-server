@@ -2,14 +2,17 @@
 // @ts-nocheck
 const path = require("path");
 const express = require("express");
-const chalk = require("chalk");
 const ip = require("ip");
 const proxy = require("express-http-proxy");
 
+
+
 // 功能组件引用
 const normalizeConfig = require("./features/handleConfig")();
+const logger = require('./features/logger')(normalizeConfig);
 
 const app = express();
+normalizeConfig.hookInitExpress(app);
 app.use("/", express.static(path.resolve("./", normalizeConfig.staticRoot)));
 
 (normalizeConfig.proxy || []).forEach((proxyConf) => {
@@ -18,11 +21,8 @@ app.use("/", express.static(path.resolve("./", normalizeConfig.staticRoot)));
 });
 
 app.listen(3000, () => {
-  console.log(chalk.green(`服务启动成功:`));
-  console.log(
-    chalk.green(`http地址: http://localhost:${normalizeConfig.port}`)
-  );
-  console.log(
-    chalk.green(`http地址: http://${ip.address()}:${normalizeConfig.port}`)
-  );
+  logger.success(`服务启动成功:`);
+  logger.success(`http地址: http://localhost:${normalizeConfig.port}`);
+  logger.success(`http地址: http://${ip.address()}:${normalizeConfig.port}`);
+  normalizeConfig.hookExpressListen();
 });
