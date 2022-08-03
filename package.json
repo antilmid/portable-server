@@ -7,7 +7,7 @@
     "pserver": "./app/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "genCert": "openssl req -config ./app/common/local.conf -new -sha256 -newkey rsa:2048 -nodes -keyout ./app/common/localhost.key -x509 -days 3650 -out ./app/common/localhost.crt"
   },
   "repository": {
     "type": "git",
