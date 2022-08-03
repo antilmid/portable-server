@@ -2,6 +2,8 @@
   "name": "portable-server",
   "version": "1.0.0",
   "description": "一个便携的测试服务器",
+  "keywords": ["development", "test", "portable", "server", "cli", "https", "proxy"],
+  "git": "https://github.com/antilmid/portable-server",
   "main": "./app/index.js",
   "bin": {
     "pserver": "./app/index.js"
@@ -13,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/antilmid/portable-server.git"
   },
-  "author": "",
+  "author": "daviantdengwei",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/antilmid/portable-server/issues"
