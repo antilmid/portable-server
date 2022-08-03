@@ -32,6 +32,7 @@ if(normalizeConfig.https) {
     logger.success(`服务启动成功:`);
     logger.success(`https地址: https://localhost:${normalizeConfig.port}`);
     logger.success(`https地址: https://${ip.address()}:${normalizeConfig.port}`);
+    normalizeConfig.hookExpressListen();
   });
 } else {
   app.listen(normalizeConfig.port, () => {
